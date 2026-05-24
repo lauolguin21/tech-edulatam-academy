@@ -81,7 +81,7 @@ className="h-24 md:h-28 w-auto object-contain scale-125"
   />
 </Link>
 
-          <div className="hidden md:flex gap-10 font-bold text-slate-700">
+         <div className="hidden lg:flex gap-10 font-bold text-slate-700">
             <a href="#inicio" className="text-blue-600">Inicio</a>
             <a href="#areas">Áreas</a>
             <a href="#nosotros">Nosotros</a>
@@ -98,6 +98,12 @@ className="h-24 md:h-28 w-auto object-contain scale-125"
             </button>
           </div>
         </div>
+        <div className="lg:hidden flex justify-center gap-5 text-sm font-bold text-slate-700 pb-4">
+  <a href="#inicio">Inicio</a>
+  <a href="#areas">Áreas</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
+</div>
       </nav>
 
       {/* HERO */}
