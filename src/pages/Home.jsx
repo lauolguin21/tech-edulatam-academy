@@ -1,208 +1,340 @@
 import { Link } from "react-router-dom"
 
 function Home() {
+  const courses = [
+    {
+      title: "Control PID Avanzado",
+      area: "CONTROL",
+      price: "$49.99",
+      img: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=800",
+    },
+    {
+      title: "Análisis de Circuitos Trifásicos",
+      area: "ELECTRICIDAD",
+      price: "$39.99",
+      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800",
+    },
+    {
+      title: "Convertidores DC-DC",
+      area: "ELECTRÓNICA",
+      price: "$59.99",
+      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800",
+    },
+    {
+      title: "Programación con Python",
+      area: "PROGRAMACIÓN",
+      price: "$59.99",
+      img: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800",
+    },
+    {
+      title: "Ecuaciones Diferenciales",
+      area: "MATEMÁTICAS",
+      price: "$39.99",
+      img: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800",
+    },
+  ]
+
   const areas = [
     {
       title: "Ingeniería en Control de Sistemas",
+      text: "Modelado, control clásico, moderno, PID y CINVESTAV.",
       path: "/control",
-      courses: "5 cursos",
-      color: "from-blue-600 to-blue-900",
-      description: "Modelado, control clásico, moderno, PID y CINVESTAV.",
+      color: "blue",
     },
     {
       title: "Electricidad Aplicada a la Ingeniería",
+      text: "Circuitos monofásicos, trifásicos, transformadores y campos.",
       path: "/electricidad",
-      courses: "5 cursos",
-      color: "from-green-500 to-emerald-800",
-      description: "Circuitos AC, trifásicos, transformadores y campos.",
+      color: "green",
     },
     {
       title: "Electrónica Aplicada a la Ingeniería",
+      text: "Potencia, convertidores, Buck-Boost e inversores.",
       path: "/electronica",
-      courses: "6 cursos",
-      color: "from-orange-500 to-amber-700",
-      description: "Potencia, convertidores, inversores y simulación.",
+      color: "orange",
     },
     {
       title: "Programación y Software Aplicados",
+      text: "Python, PLC, MATLAB, C# y herramientas técnicas.",
       path: "/programacion",
-      courses: "5 cursos",
-      color: "from-red-500 to-rose-800",
-      description: "Python, C#, PLC, MATLAB, Arduino y ESP32.",
+      color: "rose",
     },
     {
       title: "Matemáticas y Ciencias Aplicadas",
+      text: "Matemáticas aplicadas para ingeniería y análisis técnico.",
       path: "/matematicas",
-      courses: "5 cursos",
-      color: "from-purple-500 to-violet-900",
-      description: "Ecuaciones, álgebra, métodos numéricos y variable compleja.",
+      color: "purple",
     },
   ]
 
-  const benefits = [
-    "Cursos especializados en ingeniería",
-    "Temarios completos por curso",
-    "Modalidad online",
-    "Material técnico descargable",
-  ]
-
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
-      <nav className="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-white text-slate-900">
+      {/* NAVBAR */}
+      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-black text-blue-900">
-            Tech Edulatam Academy
-          </h1>
+          
+          <Link to="/" className="flex items-center gap-3">
+  <img
+    src="/logo-tech-edulatam.jpg"
+    alt="Tech Edulatam"
+className="h-24 md:h-28 w-auto object-contain scale-125"
+  />
+</Link>
 
-          <div className="hidden md:flex gap-8 font-semibold text-slate-700">
+          <div className="hidden md:flex gap-10 font-bold text-slate-700">
+            <a href="#inicio" className="text-blue-600">Inicio</a>
             <a href="#areas">Áreas</a>
-            <a href="#beneficios">Beneficios</a>
+            <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button className="relative text-2xl">🛒</button>
+            <button className="border border-slate-200 px-5 py-3 rounded-xl font-bold">
+              Iniciar sesión
+            </button>
+            <button className="hidden md:block bg-blue-600 text-white px-5 py-3 rounded-xl font-bold">
+              Regístrate
+            </button>
           </div>
         </div>
       </nav>
 
-      <section className="bg-gradient-to-br from-blue-950 via-blue-900 to-slate-950 text-white px-6 py-24">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+      {/* HERO */}
+      <section id="inicio" className="bg-gradient-to-br from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-yellow-400 font-black mb-4">
-              FORMACIÓN TÉCNICA PROFESIONAL
+            <p className="inline-block bg-blue-100 text-blue-700 font-black text-sm px-4 py-2 rounded-full mb-6">
+              FORMACIÓN COMPLETA, PRÁCTICA Y 100% ONLINE
             </p>
 
-            <h2 className="text-5xl md:text-6xl font-black leading-tight mb-6">
-              Cursos especializados en ingeniería aplicada
+            <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6">
+              Aprende Ingeniería Aplicada con{" "}
+              <span className="text-blue-600">Proyectos Reales</span>
             </h2>
 
-            <p className="text-xl text-blue-100 mb-8">
-              Aprende control, electrónica, electricidad, programación y
-              matemáticas con rutas diseñadas para estudiantes e ingenieros.
+            <p className="text-xl text-slate-600 max-w-xl mb-8">
+              Cursos especializados en control, electricidad, electrónica,
+              programación y matemáticas aplicadas a la ingeniería.
             </p>
 
-            <a
-              href="#areas"
-              className="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-black px-8 py-4 rounded-2xl"
-            >
-              Ver áreas de formación
-            </a>
-          </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#cursos"
+                className="bg-blue-600 text-white px-8 py-4 rounded-xl font-black text-center"
+              >
+                Explorar cursos →
+              </a>
 
-          <div className="bg-white/10 rounded-3xl p-8 shadow-2xl border border-white/10">
-            <h3 className="text-3xl font-black mb-6">
-              Plataforma en construcción
-            </h3>
-
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/10 rounded-2xl p-5">
-                <p className="text-4xl font-black text-yellow-400">+25</p>
-                <p className="text-blue-100">cursos</p>
-              </div>
-
-              <div className="bg-white/10 rounded-2xl p-5">
-                <p className="text-4xl font-black text-yellow-400">5</p>
-                <p className="text-blue-100">áreas</p>
-              </div>
-
-              <div className="bg-white/10 rounded-2xl p-5">
-                <p className="text-4xl font-black text-yellow-400">PDF</p>
-                <p className="text-blue-100">temarios</p>
-              </div>
-
-              <div className="bg-white/10 rounded-2xl p-5">
-                <p className="text-4xl font-black text-yellow-400">24/7</p>
-                <p className="text-blue-100">acceso</p>
-              </div>
+              <a
+                href="#areas"
+                className="border border-slate-300 px-8 py-4 rounded-xl font-black text-center"
+              >
+                Conocer áreas
+              </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="beneficios" className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-6">
-          {benefits.map((benefit, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 shadow">
-              <p className="font-bold text-slate-800">{benefit}</p>
+          <div className="relative">
+            <img
+              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200"
+              alt="Ingeniería aplicada"
+              className="rounded-[2rem] shadow-2xl w-full h-[430px] object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 pb-14 grid md:grid-cols-4 gap-6">
+          {[
+            ["🎓", "Certificados", "al finalizar"],
+            ["⚙️", "Proyectos reales", "Aprende haciendo"],
+            ["🕒", "Acceso 24/7", "Desde cualquier lugar"],
+            ["👥", "Soporte experto", "Acompañamiento"],
+          ].map(([icon, title, text]) => (
+            <div key={title} className="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm">
+              <div className="text-3xl">{icon}</div>
+              <div>
+                <h3 className="font-black">{title}</h3>
+                <p className="text-sm text-slate-500">{text}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="areas" className="max-w-7xl mx-auto px-6 py-20">
-        <div className="mb-12">
-          <p className="text-blue-900 font-black mb-2">
-            ÁREAS DISPONIBLES
+      {/* CURSOS DESTACADOS */}
+      <section id="cursos" className="max-w-7xl mx-auto px-6 py-20">
+        <div className="text-center mb-12">
+          <p className="text-blue-600 font-black text-sm">CURSOS DESTACADOS</p>
+          <h2 className="text-4xl font-black">
+            Explora nuestros cursos más populares
+          </h2>
+          <p className="text-slate-500 mt-3">
+            Contenido actualizado, práctico y diseñado para llevar tus habilidades al siguiente nivel.
           </p>
-          <h3 className="text-4xl md:text-5xl font-black">
-            Elige tu ruta de aprendizaje
-          </h3>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {areas.map((area, index) => (
-            <Link
-              key={index}
-              to={area.path}
-              className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition"
-            >
-              <div className={`h-3 bg-gradient-to-r ${area.color}`} />
-
-              <div className="p-8">
-                <p className="text-sm font-black text-slate-500 mb-3">
-                  {area.courses}
-                </p>
-
-                <h4 className="text-2xl font-black text-blue-950 mb-4">
-                  {area.title}
-                </h4>
-
-                <p className="text-slate-600 mb-6">
-                  {area.description}
-                </p>
-
-                <span className="font-black text-blue-900">
-                  Ver cursos y temarios →
+        <div className="grid md:grid-cols-5 gap-6">
+          {courses.map((course) => (
+            <div key={course.title} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+              <img src={course.img} alt={course.title} className="h-40 w-full object-cover" />
+              <div className="p-5">
+                <span className="text-xs bg-blue-600 text-white font-black px-3 py-1 rounded-full">
+                  {course.area}
                 </span>
+                <h3 className="font-black text-lg mt-4 mb-3">{course.title}</h3>
+                <p className="text-sm text-yellow-500 mb-2">★★★★★ <span className="text-slate-400">5.0</span></p>
+                <p className="font-black">{course.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <a className="inline-block border border-blue-200 text-blue-700 font-black px-8 py-3 rounded-xl">
+            Ver todos los cursos →
+          </a>
+        </div>
+      </section>
+
+      {/* ÁREAS */}
+      <section id="areas" className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-12">
+          <p className="text-blue-600 font-black text-sm">EXPLORA</p>
+          <h2 className="text-4xl font-black">
+            Nuestras 5 áreas de formación
+          </h2>
+          <p className="text-slate-500 mt-3">
+            Elige el área que más te interese y comienza tu camino hacia el conocimiento.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-5 gap-6">
+          {areas.map((area) => (
+            <Link
+              key={area.title}
+              to={area.path}
+              className="bg-white rounded-3xl border border-slate-200 shadow-lg hover:-translate-y-2 transition overflow-hidden"
+            >
+              <div className="p-6">
+                <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white grid place-items-center text-2xl mb-5">
+                  ⚙️
+                </div>
+                <h3 className="font-black text-xl mb-3">{area.title}</h3>
+                <p className="text-slate-600 text-sm mb-6">{area.text}</p>
+                <span className="font-black text-blue-600">Ver cursos →</span>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="bg-blue-950 text-white px-6 py-20">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      {/* POR QUÉ ESTUDIAR */}
+      <section id="nosotros" className="max-w-7xl mx-auto px-6 py-16">
+        <div className="bg-blue-50 rounded-[2rem] p-10">
+          <h2 className="text-3xl font-black text-center mb-10">
+            ¿Por qué estudiar en <span className="text-blue-600">Tech Edulatam Academy?</span>
+          </h2>
+
+          <div className="grid md:grid-cols-6 gap-6 text-center">
+            {[
+              ["🎯", "Formación práctica", "Aprende con proyectos reales."],
+              ["📘", "Contenido actualizado", "Material alineado a tecnología actual."],
+              ["👨‍🏫", "Profesores expertos", "Experiencia real en ingeniería."],
+              ["⏱️", "Acceso flexible", "Estudia a tu ritmo."],
+              ["🛡️", "Certificado", "Constancia digital al finalizar."],
+              ["👥", "Comunidad activa", "Acompañamiento y soporte."],
+            ].map(([icon, title, text]) => (
+              <div key={title}>
+                <div className="text-3xl mb-3">{icon}</div>
+                <h3 className="font-black mb-2">{title}</h3>
+                <p className="text-sm text-slate-600">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-10">
+          <p className="text-blue-600 font-black text-sm">TESTIMONIOS</p>
+          <h2 className="text-4xl font-black">
+            Lo que dicen nuestros estudiantes
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            "Los cursos son excelentes, muy completos y bien explicados.",
+            "La mejor plataforma para aprender ingeniería aplicada.",
+            "Me encantó la metodología, práctica y fácil de entender.",
+          ].map((text, index) => (
+            <div key={index} className="bg-white border border-slate-200 rounded-3xl p-8 shadow">
+              <p className="text-4xl text-blue-600">“</p>
+              <p className="text-slate-700 mb-5">{text}</p>
+              <p className="text-yellow-500">★★★★★</p>
+              <h4 className="font-black mt-3">Estudiante Tech Edulatam</h4>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA WHATSAPP */}
+      <section id="contacto" className="max-w-7xl mx-auto px-6 py-12">
+        <div className="bg-blue-50 rounded-3xl p-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
-            <h3 className="text-4xl font-black mb-4">
-              Aprende con una academia técnica especializada
-            </h3>
-            <p className="text-blue-100 text-lg">
-              Primero podrás consultar áreas, cursos y temarios. Después
-              integraremos videos, pagos, login y acceso automático.
+            <h2 className="text-2xl font-black">
+              ¿Tienes dudas o necesitas más información?
+            </h2>
+            <p className="text-slate-600">
+              Escríbenos por WhatsApp y te ayudamos a elegir el curso ideal para ti.
             </p>
           </div>
 
           <a
-            id="contacto"
             href="https://wa.me/525532501381"
-            className="bg-yellow-400 text-black text-center font-black px-8 py-5 rounded-2xl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 text-white px-8 py-4 rounded-xl font-black"
           >
             Solicitar información por WhatsApp
           </a>
         </div>
       </section>
 
-      <footer className="bg-slate-950 text-white px-6 py-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-6">
+      {/* FOOTER OSCURO */}
+      <footer className="bg-slate-950 text-white px-6 py-14">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
           <div>
-            <h4 className="text-2xl font-black">
-              Tech Edulatam Academy
-            </h4>
-            <p className="text-slate-400">
-              Cursos de ingeniería online.
+            <h3 className="text-2xl font-black">TECH EDULATAM</h3>
+            <p className="text-blue-400 tracking-[0.25em] text-sm font-black mb-4">
+              ACADEMY
+            </p>
+            <p className="text-slate-300">
+              Formación técnica profesional para impulsar tu futuro.
             </p>
           </div>
 
-          <p className="text-slate-400">
-            © 2026 Tech Edulatam
-          </p>
+          <div>
+            <h4 className="font-black mb-4">Síguenos</h4>
+            <div className="flex gap-4 text-2xl">
+              <a href="https://www.facebook.com/TechEdulatam" target="_blank">🌐</a>
+              <a href="https://www.instagram.com/techedulatam" target="_blank">📸</a>
+              <a href="#">▶️</a>
+              <a href="#">💼</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-black mb-4">Contacto</h4>
+            <p className="text-slate-300">WhatsApp: +52 55 3250 1381</p>
+            <p className="text-slate-300">Correo: info@techedulatam.com</p>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto border-t border-white/10 mt-10 pt-6 text-center text-slate-400">
+          © 2026 Tech Edulatam Academy. Todos los derechos reservados.
         </div>
       </footer>
     </div>
