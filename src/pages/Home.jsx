@@ -1,6 +1,41 @@
 import { Link } from "react-router-dom"
+import { useState } from "react"
+import HeroCarousel from "../components/HeroCarousel"
+
 
 function Home() {
+
+  const [slide, setSlide] = useState(0)
+
+const heroSlides = [
+  {
+    badge: "FORMACIÓN COMPLETA, PRÁCTICA Y 100% ONLINE",
+    title: "Aprende Ingeniería Aplicada con",
+    highlight: "Proyectos Reales",
+    text: "Cursos especializados en control, electricidad, electrónica, programación y matemáticas aplicadas a la ingeniería.",
+    image:
+      "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200",
+  },
+  {
+    badge: "CURSOS ESPECIALIZADOS PARA INGENIERÍA",
+    title: "Domina herramientas técnicas con",
+    highlight: "clases aplicadas",
+    text: "Accede a contenidos de electrónica, control, programación, electricidad y matemáticas desde una sola plataforma.",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200",
+  },
+  {
+    badge: "APRENDE A TU RITMO DESDE CUALQUIER LUGAR",
+    title: "Impulsa tu perfil profesional con",
+    highlight: "formación online",
+    text: "Estudia con materiales descargables, videos de clase, temarios técnicos y acceso online.",
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200",
+  },
+]
+
+
+
   const courses = [
     {
       title: "Control PID Avanzado",
@@ -72,16 +107,19 @@ function Home() {
       {/* NAVBAR */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          
           <Link to="/" className="flex items-center gap-3">
-  <img
-    src="/logo-tech-edulatam.jpg"
-    alt="Tech Edulatam"
-className="h-24 md:h-28 w-auto object-contain scale-125"
-  />
-</Link>
+            <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white grid place-items-center font-black">
+              TE
+            </div>
+            <div>
+              <h1 className="font-black text-xl leading-none">TECH EDULATAM</h1>
+              <p className="text-blue-600 tracking-[0.25em] text-xs font-black">
+                ACADEMY
+              </p>
+            </div>
+          </Link>
 
-         <div className="hidden lg:flex gap-10 font-bold text-slate-700">
+          <div className="hidden md:flex gap-10 font-bold text-slate-700">
             <a href="#inicio" className="text-blue-600">Inicio</a>
             <a href="#areas">Áreas</a>
             <a href="#nosotros">Nosotros</a>
@@ -98,77 +136,141 @@ className="h-24 md:h-28 w-auto object-contain scale-125"
             </button>
           </div>
         </div>
-        <div className="lg:hidden flex justify-center gap-5 text-sm font-bold text-slate-700 pb-4">
-  <a href="#inicio">Inicio</a>
-  <a href="#areas">Áreas</a>
-  <a href="#nosotros">Nosotros</a>
-  <a href="#contacto">Contacto</a>
-</div>
       </nav>
 
       {/* HERO */}
-      <section id="inicio" className="bg-gradient-to-br from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="inline-block bg-blue-100 text-blue-700 font-black text-sm px-4 py-2 rounded-full mb-6">
-              FORMACIÓN COMPLETA, PRÁCTICA Y 100% ONLINE
-            </p>
+  
 
-            <h2 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-              Aprende Ingeniería Aplicada con{" "}
-              <span className="text-blue-600">Proyectos Reales</span>
-            </h2>
+<HeroCarousel />
 
-            <p className="text-xl text-slate-600 max-w-xl mb-8">
-              Cursos especializados en control, electricidad, electrónica,
-              programación y matemáticas aplicadas a la ingeniería.
-            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#cursos"
-                className="bg-blue-600 text-white px-8 py-4 rounded-xl font-black text-center"
-              >
-                Explorar cursos →
-              </a>
 
-              <a
-                href="#areas"
-                className="border border-slate-300 px-8 py-4 rounded-xl font-black text-center"
-              >
-                Conocer áreas
-              </a>
-            </div>
-          </div>
+      {/* ÁREAS */}
+      
+  <section
+        id="areas"
+        className="max-w-7xl mx-auto px-6 py-20"
+      >
 
-          <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200"
-              alt="Ingeniería aplicada"
-              className="rounded-[2rem] shadow-2xl w-full h-[430px] object-cover"
-            />
-          </div>
+        <div className="text-center mb-14">
+
+          <p className="text-blue-600 font-black uppercase text-sm">
+            Nuestras 5 áreas de formación
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-black mt-4 text-slate-950">
+            Explora nuestras áreas de conocimiento
+          </h2>
+
+          <p className="text-slate-500 mt-5 max-w-3xl mx-auto text-lg">
+            Elige el área que más te interese y comienza tu camino hacia el éxito profesional.
+          </p>
+
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 pb-14 grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+
           {[
-            ["🎓", "Certificados", "al finalizar"],
-            ["⚙️", "Proyectos reales", "Aprende haciendo"],
-            ["🕒", "Acceso 24/7", "Desde cualquier lugar"],
-            ["👥", "Soporte experto", "Acompañamiento"],
-          ].map(([icon, title, text]) => (
-            <div key={title} className="flex items-center gap-4 bg-white p-5 rounded-2xl shadow-sm">
-              <div className="text-3xl">{icon}</div>
-              <div>
-                <h3 className="font-black">{title}</h3>
-                <p className="text-sm text-slate-500">{text}</p>
+            {
+              title: "Ingeniería en Control de Sistemas",
+              text: "Modelado, control clásico, moderno, PID y CINVESTAV.",
+              path: "/control",
+              icon: "⚙️",
+              color: "from-blue-600 to-blue-800",
+              image:
+                "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=900",
+            },
+
+            {
+              title: "Electricidad Aplicada a la Ingeniería",
+              text: "Circuitos monofásicos, trifásicos y transformadores.",
+              path: "/electricidad",
+              icon: "⚡",
+              color: "from-emerald-500 to-green-700",
+              image:
+                "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=900",
+            },
+
+            {
+              title: "Electrónica Aplicada a la Ingeniería",
+              text: "Convertidores DC-DC, electrónica de potencia e inversores.",
+              path: "/electronica",
+              icon: "🔌",
+              color: "from-orange-500 to-amber-700",
+              image:
+                "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=900",
+            },
+
+            {
+              title: "Programación y Software Aplicados",
+              text: "Python, PLC, MATLAB, C# y herramientas técnicas.",
+              path: "/programacion",
+              icon: "</>",
+              color: "from-rose-500 to-pink-700",
+              image:
+                "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=900",
+            },
+
+            {
+              title: "Matemáticas y Ciencias Aplicadas",
+              text: "Matemáticas aplicadas para ingeniería y análisis técnico.",
+              path: "/matematicas",
+              icon: "Σ",
+              color: "from-purple-500 to-violet-800",
+              image:
+                "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=900",
+            },
+          ].map((area) => (
+
+            <Link
+              key={area.title}
+              to={area.path}
+              className="group relative h-[430px] rounded-[2rem] overflow-hidden bg-white border border-slate-200 shadow-xl hover:-translate-y-2 transition duration-300"
+            >
+
+              <img
+                src={area.image}
+                alt={area.title}
+                className="absolute bottom-0 left-0 w-full h-[46%] object-cover group-hover:scale-110 transition duration-500"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-transparent z-10" />
+
+              <div className="absolute inset-0 z-20 p-7 flex flex-col">
+
+                <div
+                  className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${area.color} text-white grid place-items-center text-xl font-black shadow-lg mb-5`}
+                >
+                  {area.icon}
+                </div>
+
+                <h3 className="font-black text-xl text-slate-950 leading-tight mb-4">
+                  {area.title}
+                </h3>
+
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {area.text}
+                </p>
+
+                <div className="mt-auto">
+
+                 <div className="bg-white text-blue-700 font-black text-center py-3 rounded-xl shadow-lg transition duration-300 group-hover:bg-blue-600 group-hover:text-white">
+  Ver cursos →
+</div>
+
+                </div>
+
               </div>
-            </div>
+
+            </Link>
+
           ))}
+
         </div>
       </section>
 
-      {/* CURSOS DESTACADOS */}
+
+   {/* CURSOS DESTACADOS */}
       <section id="cursos" className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
           <p className="text-blue-600 font-black text-sm">CURSOS DESTACADOS</p>
@@ -203,37 +305,11 @@ className="h-24 md:h-28 w-auto object-contain scale-125"
         </div>
       </section>
 
-      {/* ÁREAS */}
-      <section id="areas" className="max-w-7xl mx-auto px-6 py-16">
-        <div className="text-center mb-12">
-          <p className="text-blue-600 font-black text-sm">EXPLORA</p>
-          <h2 className="text-4xl font-black">
-            Nuestras 5 áreas de formación
-          </h2>
-          <p className="text-slate-500 mt-3">
-            Elige el área que más te interese y comienza tu camino hacia el conocimiento.
-          </p>
-        </div>
 
-        <div className="grid md:grid-cols-5 gap-6">
-          {areas.map((area) => (
-            <Link
-              key={area.title}
-              to={area.path}
-              className="bg-white rounded-3xl border border-slate-200 shadow-lg hover:-translate-y-2 transition overflow-hidden"
-            >
-              <div className="p-6">
-                <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white grid place-items-center text-2xl mb-5">
-                  ⚙️
-                </div>
-                <h3 className="font-black text-xl mb-3">{area.title}</h3>
-                <p className="text-slate-600 text-sm mb-6">{area.text}</p>
-                <span className="font-black text-blue-600">Ver cursos →</span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+
+
+
+
 
       {/* POR QUÉ ESTUDIAR */}
       <section id="nosotros" className="max-w-7xl mx-auto px-6 py-16">
@@ -310,40 +386,122 @@ className="h-24 md:h-28 w-auto object-contain scale-125"
       </section>
 
       {/* FOOTER OSCURO */}
-      <footer className="bg-slate-950 text-white px-6 py-14">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
-          <div>
-            <h3 className="text-2xl font-black">TECH EDULATAM</h3>
-            <p className="text-blue-400 tracking-[0.25em] text-sm font-black mb-4">
-              ACADEMY
-            </p>
-            <p className="text-slate-300">
-              Formación técnica profesional para impulsar tu futuro.
-            </p>
-          </div>
 
-          <div>
-            <h4 className="font-black mb-4">Síguenos</h4>
-            <div className="flex gap-4 text-2xl">
-              <a href="https://www.facebook.com/TechEdulatam" target="_blank">🌐</a>
-              <a href="https://www.instagram.com/techedulatam" target="_blank">📸</a>
-              <a href="#">▶️</a>
-              <a href="#">💼</a>
-            </div>
-          </div>
+{/* FOOTER */}
+<footer className="bg-slate-950 text-white px-6 py-16">
 
-          <div>
-            <h4 className="font-black mb-4">Contacto</h4>
-            <p className="text-slate-300">WhatsApp: +52 55 3250 1381</p>
-            <p className="text-slate-300">Correo: info@techedulatam.com</p>
-          </div>
+  <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+
+    {/* LOGO */}
+    <div>
+
+      <div className="flex items-center gap-4 mb-5">
+
+        <img
+          src="/logo-tech-edulatam.jpg"
+          alt="Tech Edulatam"
+          className="w-16 h-16 object-contain"
+        />
+
+        <div>
+
+          <h3 className="text-2xl font-black leading-none">
+            TECH EDULATAM
+          </h3>
+
+          <p className="text-blue-400 tracking-[0.3em] text-sm font-black mt-1">
+            ACADEMY
+          </p>
+
         </div>
 
-        <div className="max-w-7xl mx-auto border-t border-white/10 mt-10 pt-6 text-center text-slate-400">
-          © 2026 Tech Edulatam Academy. Todos los derechos reservados.
-        </div>
-      </footer>
+      </div>
+
+      <p className="text-slate-400 leading-relaxed max-w-sm">
+        Formación técnica especializada en ingeniería, electrónica,
+        control, programación y matemáticas aplicadas.
+      </p>
+
     </div>
+
+    {/* REDES */}
+    <div>
+
+      <h4 className="font-black text-lg mb-5">
+        Síguenos
+      </h4>
+
+      <div className="flex items-center gap-4">
+
+        <a
+          href="https://www.facebook.com/TechEdulatam"
+          target="_blank"
+          rel="noreferrer"
+          className="w-12 h-12 rounded-full bg-slate-800 hover:bg-blue-600 transition duration-300 flex items-center justify-center text-white"
+        >
+          <i className="fab fa-facebook-f text-xl"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/techedulatam"
+          target="_blank"
+          rel="noreferrer"
+          className="w-12 h-12 rounded-full bg-slate-800 hover:bg-pink-600 transition duration-300 flex items-center justify-center text-white"
+        >
+          <i className="fab fa-instagram text-xl"></i>
+        </a>
+
+        <a
+          href="#"
+          className="w-12 h-12 rounded-full bg-slate-800 hover:bg-red-600 transition duration-300 flex items-center justify-center text-white"
+        >
+          <i className="fab fa-youtube text-xl"></i>
+        </a>
+
+        <a
+          href="https://wa.me/525532501381"
+          target="_blank"
+          rel="noreferrer"
+          className="w-12 h-12 rounded-full bg-slate-800 hover:bg-green-600 transition duration-300 flex items-center justify-center text-white"
+        >
+          <i className="fab fa-whatsapp text-xl"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    {/* CONTACTO */}
+    <div>
+
+      <h4 className="font-black text-lg mb-5">
+        Contacto
+      </h4>
+
+      <div className="space-y-3 text-slate-400">
+
+        <p>
+          WhatsApp: +52 55 3250 1381
+        </p>
+
+        <p>
+          tech.edulatam@gmail.com
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {/* COPYRIGHT */}
+  <div className="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 text-center text-slate-500 text-sm">
+    © 2026 Tech Edulatam Academy. Todos los derechos reservados.
+  </div>
+
+</footer>
+
+</div>
   )
 }
 
