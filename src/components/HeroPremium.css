@@ -1,0 +1,244 @@
+*{
+  box-sizing:border-box;
+}
+
+.carousel-container{
+  width:100%;
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  font-family:Inter, Arial, sans-serif;
+}
+
+/* =========================
+   SLIDES
+========================= */
+
+.slide{
+  min-height:100vh;
+  padding:70px 8%;
+  display:grid;
+  align-items:center;
+}
+
+/* =========================
+   CURSO
+========================= */
+
+.slide-course{
+  grid-template-columns:1.1fr .9fr;
+  background:
+  linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #edf5ff 55%,
+    #0a52e8 100%
+  );
+}
+
+.slide-left h1{
+  margin:0;
+  font-size:clamp(56px,6vw,92px);
+  line-height:.92;
+  color:#081126;
+  font-weight:950;
+}
+
+.slide-left h1 span{
+  display:block;
+  color:#0647ff;
+}
+
+.slide-left p{
+  max-width:620px;
+  margin:28px 0;
+  font-size:22px;
+  line-height:1.5;
+  color:#1d2940;
+}
+
+.badge{
+  display:inline-flex;
+  padding:12px 22px;
+  background:white;
+  border-radius:999px;
+  color:#0647ff;
+  font-weight:900;
+  margin-bottom:24px;
+  box-shadow:0 12px 24px rgba(0,0,0,.08);
+}
+
+.info-card{
+  max-width:560px;
+  background:white;
+  border-radius:22px;
+  padding:26px;
+  display:grid;
+  gap:14px;
+  box-shadow:0 18px 40px rgba(0,0,0,.10);
+  margin-bottom:28px;
+  font-weight:700;
+  color:#081126;
+}
+
+.buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.main-btn,
+.secondary-btn{
+  min-height:58px;
+  padding:0 30px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight:900;
+}
+
+.main-btn{
+  background:#ffd400;
+  color:#081126;
+  box-shadow:0 14px 30px rgba(255,212,0,.35);
+}
+
+.secondary-btn{
+  background:white;
+  color:#0647ff;
+  border:1px solid #0647ff;
+}
+
+.slide-right{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
+.slide-right img{
+  width:100%;
+  max-width:460px;
+}
+
+/* =========================
+   COMUNIDAD
+========================= */
+
+.slide-community{
+  grid-template-columns:1fr;
+  text-align:center;
+  background:
+  linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #edf5ff 55%,
+    #d9e8ff 100%
+  );
+}
+
+.community-content{
+  max-width:900px;
+  margin:auto;
+}
+
+.community-content h1{
+  margin:0;
+  font-size:clamp(56px,6vw,92px);
+  line-height:.92;
+  color:#081126;
+  font-weight:950;
+}
+
+.community-content h1 span{
+  display:block;
+  color:#0647ff;
+}
+
+.community-content p{
+  max-width:720px;
+  margin:30px auto;
+  font-size:22px;
+  line-height:1.5;
+  color:#1d2940;
+}
+
+/* =========================
+   CONTROLES
+========================= */
+
+.carousel-controls{
+  position:absolute;
+  left:50%;
+  bottom:26px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+}
+
+.carousel-controls button{
+  border:none;
+  height:52px;
+  padding:0 24px;
+  border-radius:999px;
+  background:white;
+  color:#0647ff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.carousel-controls button.active{
+  background:#0647ff;
+  color:white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .slide-course{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .slide-left p,
+  .info-card{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .slide-right img{
+    max-width:320px;
+    margin-top:40px;
+  }
+
+}
+
+@media(max-width:680px){
+
+  .slide{
+    padding:50px 22px 110px;
+  }
+
+  .buttons{
+    flex-direction:column;
+  }
+
+  .main-btn,
+  .secondary-btn{
+    width:100%;
+  }
+
+  .community-content p,
+  .slide-left p{
+    font-size:18px;
+  }
+
+}

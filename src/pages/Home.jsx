@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import HeroCarousel from "../components/HeroCarousel"
+import HeroCarousel from "../components/HeroPremium"
+
+
+
+
 
 
 function Home() {
